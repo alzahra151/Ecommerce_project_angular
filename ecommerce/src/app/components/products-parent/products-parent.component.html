@@ -1,0 +1,32 @@
+<div class="col-12">
+    <img src="assets/Ecommerce-Banner-1920.jpg"  class="img-fluid">
+</div>
+<select [(ngModel)]="selectedCategoryId" >
+    <option value="0" selected> All categories</option>
+    <option *ngFor="let cat of catList" [value]="cat.id">{{cat.Name}}</option>
+</select>
+<a class="btn btn-success btn-sm " [routerLink]="['/product/Add']" role="button">Add new product </a>
+<hr>
+<app-products [recievedIdfromPerant]="selectedCategoryId" (cardProduct)="displayCardInfo ($event)"></app-products>
+<hr>
+<table class="table align-middle">
+<thead>
+    <tr >
+      <th scope="col" >name</th>
+      <th scope="col"> price</th>
+      <th scope="col">count</th>
+      <th scope="col">total price</th>
+     
+    </tr>
+  </thead>
+  <tbody #card>
+       <tr *ngFor="let cardPod of recevedCardItems">
+        <td>{{cardPod.Name}}</td>
+        <td>{{cardPod.price}}</td>
+        <td>{{cardPod.count}}</td>
+        <td>{{cardPod.TotalPrice}}</td>
+       </tr>
+      </tbody>
+
+</table>
+<h3>Total Price :  {{price}}</h3>

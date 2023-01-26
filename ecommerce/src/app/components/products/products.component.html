@@ -1,0 +1,113 @@
+
+<!-- <select [(ngModel)]="selectedID" >
+  <option *ngFor="let cat of catList" [value]="cat.ID">{{cat.Name}}</option>
+</select> -->
+date:<h6 >{{date | date :'short'}}</h6>
+<table class="table align-middle">
+  <thead>
+    <tr >
+      <th scope="col" >name</th>
+      <th scope="col"> image</th>
+      <th scope="col">price</th>
+      <th scope="col">quentity</th>
+      <th scope="col">count</th>
+      <th scope="col">buy</th>
+      <th scope="col">Details</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let prod of prodListOfCat" [ngStyle]="{'background-color':(prod.Quentity==1)?'lightyellow':'lightblue'}" [hidden]="prod.Quentity==0" >
+      <th  >{{prod.Name}}</th>
+      <td><img [src]="prod.Img" width="100" height="100"/></td>
+      <td>{{prod.price | currency:'USD'}}</td>
+      <td>{{prod.Quentity}}</td>
+      <td><input type="number"  [(ngModel)]="prod.count" ></td>
+      <td>
+        <button type="button" class="btn btn-danger btn-sm px-3" data-ripple-color="dark" (click)="addToCard(this.prod)">
+         Add To Card
+        </button>
+      </td>
+      <td>
+        <!-- <button type="button" class="btn btn-success btn-sm px-3" data-ripple-color="dark" (click)="showDetails(prod.Id)">  </button>-->
+        <a class="btn btn-success" [routerLink]="['/products' ,prod.id]" role="button">Details</a>
+       
+      </td>
+      <td>
+        <a class="btn btn-success" [routerLink]="['/product/edit' ,prod.id]" role="button">edit</a>
+      </td>
+      <td>
+        <a class="btn btn-danger" (click)="deletProduct(prod.id)" role="button">delete</a>
+      </td>
+    </tr>
+    <!-- <tr>
+      <th scope="row">2</th>
+      <td>Adipisicing</td>
+      <td>Elit</td>
+      <td>
+        <button type="button" class="btn btn-link btn-sm px-3" data-ripple-color="dark">
+          <i class="fas fa-times"></i>
+        </button>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row">3</th>
+      <td>Hic</td>
+      <td>Fugiat</td>
+      <td>
+        <button type="button" class="btn btn-link btn-sm px-3" data-ripple-color="dark">
+          <i class="fas fa-times"></i>
+        </button>
+      </td>
+    </tr> -->
+  </tbody>
+</table>
+
+
+<!-- <section style="background-color: #eee;">
+    <div class="container py-5">
+      <div class="row">
+        <ng-container *ngFor="let prod of prodListOfCat "  > 
+        <div *ngIf="prod.CateogryID==selectedID" class="col-md-12 col-lg-4 mb-4 mb-lg-0 " [hidden]="prod.Quentity==0"  > 
+          <ng-container *ngFor="let prod of prodListOfCat "  >
+          <div class="card "  [ngStyle]="{'background-color':(prod.Quentity==1)?'lightyellow':'lightblue'}" appIncreaseSadow>
+            <div class="d-flex justify-content-between p-3">
+              <p class="lead mb-0">Today's Combo Offer</p>
+              <div
+                class="bg-info rounded-circle d-flex align-items-center justify-content-center shadow-1-strong"
+                style="width: 35px; height: 35px;">
+                <p class="text-white mb-0 small">x4</p>
+              </div>
+            </div>
+            <img [src]="prod.Img" class="card-img-top" alt="Laptop" *ngIf="this.IsParserad"/>
+            <div *ngIf="!this.IsParserad">good</div>
+            <div class="card-body">
+              <div class="d-flex justify-content-between">
+                <p class="small"><a href="#!" class="text-muted" >{{prod.Name}}</a></p>
+                <p class="small text-danger"><s></s></p>
+              </div>
+  
+              <div class="d-flex justify-content-between mb-3">
+                <h5 class="mb-0" >{{prod.Name}}</h5>
+                <h5 class="text-dark mb-0">$999</h5>
+              </div>
+  
+              <div class="d-flex justify-content-between mb-2">
+                <p class="text-muted mb-0">Available: <span class="fw-bold">{{prod.Quentity}}</span></p>
+                <div class="ms-auto text-warning">
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                  <i class="fa fa-star"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <button class="btn btn-success"  (click)="prod.Quentity=prod.Quentity-1"> buy </button>
+         </div> 
+      </ng-container>
+       
+      </div>
+    </div>
+  </section>
+ -->

@@ -1,0 +1,39 @@
+<form (ngSubmit)="addProduct()" #ngForm="ngForm">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input #nameInput="ngModel" [value]="editProduct?.Name" type="text" class="form-control" id="exampleInputEmail1"
+      aria-describedby="emailHelp" placeholder="Enter email" name="prdName" [(ngModel)]="newprod.Name" required
+      pattern="[A-Za-z]{3,}">
+    <div class="alert alert-warning" role="alert" [hidden]="nameInput.valid || nameInput.untouched">
+      <!-- <small [hidden]="!nameInput.errors?.['required']" > is required</small>
+        <small [hidden]="!nameInput.errors?.['pattern']"> must be 3</small> -->
+      <small *ngIf="nameInput.errors?.['required']"> is required</small>
+      <small *ngIf="nameInput.errors?.['pattern']"> must be 3</small>
+    </div>
+
+  </div>
+  <div class="form-group">
+    <label for="exampleInput">Price</label>
+    <input type="number" [value]="editProduct?.price" class="form-control" id="exampleInput" name="prdPrice"
+      [(ngModel)]="newprod.price">
+  </div>
+  <div class="form-group">
+    <label for="exampleCheck1">Count</label><br>
+    <input type="number" class="form-controld" [value]="editProduct?.count" name="prdCount" [(ngModel)]="newprod.count">
+
+  </div>
+  <div class="form-group">
+    <label for="exampleCheck2">Quentity</label><br>
+    <input type="number" class="form-controld" [value]="editProduct?.Quentity" name="prdQuentity"
+      [(ngModel)]="newprod.Quentity">
+
+  </div>
+
+  <div>
+    <select value="0" [(ngModel)]="newprod.CateogryID" name="CateogryID">
+      <option selected disabled> All categories</option>
+      <option *ngFor="let cat of catList" [value]="cat.id">{{cat.Name}}</option>
+    </select>
+  </div>
+  <button [disabled]="ngForm.invalid" type="submit" class="btn btn-primary">Submit</button>
+</form>

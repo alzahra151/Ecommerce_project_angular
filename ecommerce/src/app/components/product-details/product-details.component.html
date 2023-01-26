@@ -1,0 +1,14 @@
+<div class="card" style="width: 18rem;">
+    <img class="card-img-top" [src]="productDetalis?.Img" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title">{{productDetalis?.Name}}</h5>
+      <div>{{productDetalis?.price}}</div>
+      <div>{{productDetalis?.Quentity}}</div>
+    
+      <button class="btn btn-warning" (click)="goToback()">Back</button>
+      
+    </div>
+    
+  </div>
+  <button class="btn btn-danger"  (click)="prev()">prev product</button>
+    <button class="btn btn-success" (click)="next()">next product</button>
