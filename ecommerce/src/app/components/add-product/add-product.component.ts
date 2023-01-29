@@ -20,11 +20,6 @@ editProduct:IProduct |null=null
               private router:Router ,
               private ActivatedRoute:ActivatedRoute,
               private apiservice:ApiProductsService) {
-                // this.catList = [
-                //   { ID: 1, Name: "Mobiles" },
-                //   { ID: 2, Name: "labtops" },
-                //   { ID: 3, Name: "TV" }
-                // ];
                }
 
   ngOnInit(): void {
@@ -54,7 +49,7 @@ editProduct:IProduct |null=null
 }
   
 addProduct(){
-  
+ this.newprod.CateogryID=Number(this.newprod.CateogryID) 
 this.apiProduct.addNewProduct(this.newprod).subscribe({
  
   next: (prod)=>{

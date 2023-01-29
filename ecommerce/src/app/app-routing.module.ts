@@ -12,7 +12,7 @@ import { UpdateComponent } from './components/update/update.component';
 import { UserRegistrationComponent } from './components/user-registration/user-registration.component';
 
 const routes: Routes = [
-  {path :'' , redirectTo: '/Home' ,pathMatch:'full'},
+  {path :'' , redirectTo: '/products' ,pathMatch:'full'},
   {path:'Home' ,component:HomeComponent},
   {path :'About Us' , component: AboutUsComponent},
   {path :'products' , component: ProductsParentComponent},

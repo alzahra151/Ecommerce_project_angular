@@ -34,12 +34,8 @@ export class ProductsParentComponent implements OnInit  {
       this.recevedCardItems=cardProdcts
       this.price =0
        for(let key in this.recevedCardItems){
-  
        this.recevedCardItems[key].TotalPrice =this.recevedCardItems[key].count * this.recevedCardItems[key].price
-
        this.price +=+this.recevedCardItems[key].TotalPrice!
-       
-
       }
       
   }
